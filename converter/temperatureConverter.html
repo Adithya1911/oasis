@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature converter</title>
+    <link type="text/css" rel="stylesheet" href="styling.css">
+</head>
+
+<body>
+    <section>
+        <div>
+            <div class="main" >
+                <h2 style="font-style: italic;">Farenheit</h2>
+                <label><b>Celcius:</b></label><br>
+                <input type="number" id="cin" required><br>
+                <label><b>Farenheit:</b></label><br>
+                <input type="number"  id="fout" placeholder="Converted value"><br>
+            </div>
+            <input id="eval" value="Evaluvate" type="submit" onclick="feval()">
+        </div>
+        <div>
+            <div class="main" >
+                <h2 style="font-style: italic;">celcius</h2>
+                <label><b>Farenheit:</b></label><br>
+                <input type="number" id="fin" required><br>
+                <label><b>celcius:</b></label><br>
+                <input type="number" id="cout"><br>
+            </div>
+            <input id="eval" value="Evaluvate" type="submit" onclick="ceval()">
+        </div>
+    </section>
+</body>
+<script>
+    let fscale = document.getElementById("fin");
+    let cscale = document.getElementById("cin");
+
+    function feval() {
+        let fot = document.getElementById("fout");
+        fot.value = (cscale.value * 9 / 5) + 32;
+    }
+
+    function ceval() {
+        let cot = document.getElementById("cout");
+        cot.value = (fscale.value - 32) * 5 / 9;
+    }
+</script>
+
+</html>
