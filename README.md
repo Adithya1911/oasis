@@ -58,11 +58,16 @@ By default, the application saves images of current frames and point cloud data 
 - `/home/digital_heritage/Digital-Heritage/ORB_SLAM3/Maps/` to the foldere path where the Point cloud is being saved
 
 To modify these paths, update the following files:
-
+- `/home/digital_heritage/Desktop/Photo-SLAM/scripts/view_rgbd` this is the path where the already saved ply file of the PHOTO-SLAM is being viewed so give the path  **Photo-SLAM/scripts** is being installed  make modifications in the following function `launch_viewer_after_realized()`
+- For running the ORB_SLAM3 make the path changes respective to your installation of ORB_SLAM3 in the `run_orbslam` 
+- For running the PHOTO_SLAM make the path changes respective to your installation of PHOTO_SLAM in the `run_photoslam`
 
 **Files to Modify:**
 - `debugger.py`
 - `user.py`
+
+
+
 
 ### ORB_SLAM3 Path
 
@@ -81,7 +86,45 @@ For Map saving location make modifications as per your requirements in the follo
 **Files to Modify:**
 - `System.cc` and in the function `void System::SavePointCloud(const string &filename)`
 - `/home/digital_heritage/Digital-Heritage/ORB_SLAM3/Maps/` to the folder path where the Point cloud is being saved
-  
+
+
+After all this changes make build once again for the ORBSLAM3 :
+- Setup ORBSLAM3 in Jetson -> [Link to Setup Instructions](ORB_SLAM3/setupInstructions.md)
+
+
+### PHOTO-SLAM
+
+
+```bash
+cd Photo-SLAM/
+chmod +x ./build.sh
+./build.sh
+
+```
+
+
+
+## 4. Final Execution:
+
+For running the python appilication the following command are required  
+
+``` bash
+cd ORB_SLAM3/Linux/App # go to the App directory
+python3 app.py
+```
+
+- There is toggle button where you can select the `debugger mode` and `user mode`.
+- Now based on your mode another interface is being opened
+- Select the SLam Process with the help of Menu option in the right top corner. By default `Dense Map` is being selected
+- Click on `Start` Button for starting the slam process
+- Click on `Stop` Button for Stopping the slam process
+- A dialog box will appear if you stop or click back button when the slam process is started for saving or delecting the map that is being created upto now
+- Click on `Show Features` Button for viewing the what key frames are being considered in the ORB_SLAM and Photo_SLAM
+- Click on `Load MAP` Button for viewing the already saved map
+- Click on `Left` and `Right` Buttons for transforming the map that is created by the ORB_SLAM and for the Photo_SLAM you can able to interact with the Point cloud with the help of mouse or dragging in touch screen
+- Click on `View Logs` Button for viewing the Logs of the SLAM Process the option is present only in the **Debugger Mode** only
+- CLick on `Back` Button for comming back to **Mode selection**
+
 
 
 
