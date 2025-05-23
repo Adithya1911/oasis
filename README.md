@@ -66,6 +66,23 @@ To modify these paths, update the following files:
 
 ### ORB_SLAM3 Path
 
+Here change the paths of the Folder where you want to save the frames.jpg and pointcloud.jpg, 
+
+
+**Files to Modify:**
+
+- `Viewer.cc` in `ORB_SLAM3/src` modify the path in the function `Run()`
+- `/home/digital_heritage/Digital-Heritage/ORB_SLAM3/Linux/frames/pointcloud.jpg` to the path where you are saving the pointcloud.jpg
+- `/home/digital_heritage/Digital-Heritage/ORB_SLAM3/Linux/frames/frame.jpg` to the path where you are saving the frame.jpg
+  
+
+For Map saving location make modifications as per your requirements in the following file in `ORB_SLAM3`  there are two maps are being saved `temp.ply and ref_temp.ply` so to make the changes make the canges in the following file.
+
+**Files to Modify:**
+- `System.cc` and in the function `void System::SavePointCloud(const string &filename)`
+- `/home/digital_heritage/Digital-Heritage/ORB_SLAM3/Maps/` to the folder path where the Point cloud is being saved
+  
+
 
 
       
